@@ -1,6 +1,22 @@
 import IconArrow from "./components/icons/IconArrow";
+import { useState } from "react";
 
 function App() {
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!email) {
+      setError("Please provide a valid email");
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      setError("Please check your email");
+    } else {
+      setError("");
+    }
+  };
+
   return (
     <>
       <main>
@@ -21,11 +37,18 @@ function App() {
               store. Add your email below to stay up-to-date with announcements
               and our launch deals.
             </p>
-            <form>
-              <input type="text" placeholder="Email Address" />
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                placeholder="Email Address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className={error ? "error" : ""}
+              />
               <button type="submit">
                 <IconArrow />
               </button>
+              {error && <p className="error">{error}</p>}
             </form>
           </div>
         </div>
