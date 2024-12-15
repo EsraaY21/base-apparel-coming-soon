@@ -1,4 +1,5 @@
 import IconArrow from "./components/icons/IconArrow";
+import IconError from "./components/icons/IconError";
 import { useState } from "react";
 
 function App() {
@@ -45,6 +46,12 @@ function App() {
                 onChange={(e) => setEmail(e.target.value)}
                 className={error ? "error" : ""}
               />
+              {error && (
+                <span className="error-icon">
+                  <IconError />
+                </span>
+              )}
+
               <button type="submit">
                 <IconArrow />
               </button>
