@@ -22,7 +22,7 @@ main {
 }
 
 .left {
-    padding-top: 74.91px;
+    padding-top: 68px;
     padding-left: 165px;
     background: url('./resources/images/bg-pattern-desktop.svg');
     background-repeat: no-repeat;
@@ -35,7 +35,7 @@ main {
 }
 
 .logo {
-    padding-bottom: 136px;
+    padding-bottom: 130px;
 }
 
 
@@ -137,4 +137,5 @@ input.error {
 
 .cover-img {
     object-fit: cover;
+    width: 42.36vw;
 }
